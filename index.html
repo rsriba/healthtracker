@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sriba Rajendran">
+    <meta name="description" content="Free online calorie counter. Staying fit and healthy is now made easy using the new Health Tracker.">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Health Tracker</title>
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"/> 
+    <link rel="stylesheet" href="datepicker/jquery-ui.css">
+
+    <script src="https://developer.edamam.com/attribution/badge.js"></script>
+
+</head>
+<body>
+    <header><h1>Health Tracker</h1></header>
+    <section class="caloriecounterapp"> 
+        <div class="displaymenu">
+            <button class="icon" aria-label="add"> <span class="glyphicon glyphicon-menu-hamburger"></span> </button>
+           <div class="searchmenu">
+                <label for="searchbar"></label>
+                <input class="searchbar" type="search" autofocus placeholder="enter the food" />
+                <button class="search" aria-label="add"> <span class="glyphicon glyphicon-search"></span> </button>
+            </div>
+            <div class="tabmenu">
+                <ul class="tab">
+                    <li class="closeicon" aria-label="add"> <span class="glyphicon glyphicon-remove"></span> </li>
+                    <li class="tabli"><a class="selected" href="#/">Search results</a></li>
+                    <li class="tabli"><a href="#/myfood">My Food</a></li>
+                    <li class="foodlog">
+                        <form id="date" action="#" method="post" enctype="multipart/form-data">
+                            <label for="datepicker"> Date: </label><input id="datepicker" type="text" />
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="content">
+            <h3 class="contentheader">Often searched:</h3>
+            <div class="searchcontainer">
+            </div>
+            <div class="addedcontainer">
+            </div>
+        </div>
+        <footer>
+            <div class="calstat">Calories consumed: <span class="totalcals">0</span></div>
+            <div id="edamam-badge" data-color="white">Powered by: EDAMAM</div>
+        </footer>
+      
+    </section>
+    
+    <!-- templates for rendering-->
+    <script type="text/template" id="searchtemplate">
+        <span><b><%= title %> </b> <br> 
+        Calories: <%= Math.round(calories) %>, Servings: <%= servings %><br>
+        <span class="nutrientsinfo">Carbs : <%= Math.round(carbs) %> g, Protein : <%= Math.round(protein) %> g, Fat : <%= Math.round(fat) %> g</span>
+        
+        <button class="add" aria-label="add"> <span class="glyphicon glyphicon-ok"></span> </button></span>
+    </script>
+
+    <script type="text/template" id="addedtemplate">
+        <span><b><%= title %> </b> <br> Calories: <%= Math.round(calories) %>, Servings: <%= servings %>, Date: <%= $.format.date( new Date(date), 'MM/dd/yyyy') %><br>
+        <span class="nutrientsinfo">Carbs : <%= Math.round(carbs) %> g, Protein : <%= Math.round(protein) %> g, Fat : <%= Math.round(fat) %> g</span>
+
+        <button class="delete" aria-label="add"> <span class="glyphicon glyphicon-remove"></span> </button></span>
+    </script>
+    
+    <script type="text/template" id="caloriecount">
+        <span id="totalcalorie"> Calories consumed: <strong><%= totalcal %></strong></span>
+    </script>
+    
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+    <script src="datepicker/jquery-ui.js"></script>
+    <script src="js/lib/jquery-dateformat.min.js"></script>
+
+
+    <script src="js/models/item.js"></script>
+    <script src="js/collections/searchresults.js"></script>
+    <script src="js/collections/addedfoods.js"></script>
+    
+    <script src="js/views/searchbar.js"></script>
+    <script src="js/views/searchlist.js"></script>
+    <script src="js/views/addedlist.js"></script>
+    <script src="js/views/searchitem.js"></script>
+    <script src="js/views/addeditem.js"></script>
+    <script src="js/views/appview.js"></script>
+
+    <script src="js/router/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
