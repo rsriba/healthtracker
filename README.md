@@ -1,5 +1,5 @@
 # Healthtracker app
-This is a single page responsive calorie tracker web application created as part of the Udacity Front End Nanodegree program.
+This is a single page responsive calorie tracker web application.
 
 Features: 
 •	Users can search for food items or drinks. Data is retrieved from the EDAMAM API and a search result is displayed in the search results tab. 
