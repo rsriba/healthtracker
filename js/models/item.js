@@ -2,7 +2,6 @@ var app = app || {};
 (function () {
     app.Item = Backbone.Model.extend({
         defaults: {
-            username: 'praha',
             date: '',
             title: 'food',
             brand: 'generic',

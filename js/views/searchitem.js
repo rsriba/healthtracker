@@ -18,7 +18,6 @@ var app = app || {};
         },
         addtofoods: function () {
             var foodmodel = new app.Item({
-                username: 'praha',
                 date: app.date,
                 title: this.model.get('title'),
                 brand: this.model.get('brand'),
