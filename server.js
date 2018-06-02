@@ -31,7 +31,6 @@ db.once('open', function () {
 //Schemas
 var Item = new mongoose.Schema({
     title: String,
-    username: String,
     date: Date,
     brand: String,
     calories: String,
@@ -101,7 +100,6 @@ app.post('/healthtracker/addedfoods', function (request, response) {
         carbs: request.body.carbs,
         protein: request.body.protein,
         fat: request.body.fat,
-        username: request.body.username,
         date: request.body.date,
         brand: request.body.brand
     });
